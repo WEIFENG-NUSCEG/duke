@@ -1,5 +1,10 @@
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 
@@ -47,6 +52,48 @@ public class Duke {
         }
     }
 
+    public static void readDukeTask(List<Task> tasks)
+    {
+        try {
+            File newDuke = new File("./data/duke.txt");
+            Scanner ss = new Scanner(newDuke);
+            while (ss.hasNext()) {
+                String[] newTask = ss.nextLine().split(" \\| ");
+                if (newTask[0].equals("T"))
+                {
+                    Task x = new ToDos(newTask[2]);
+                    if (newTask[1].equals("1"))
+                    {
+                        x.markAsDone();
+                    }
+                    tasks.add(x);
+                }
+                if (newTask[0].equals("D"))
+                {
+                    Task t = new Deadline(newTask[2], newTask[3]);
+                    if (newTask[1].equals("1"))
+                    {
+                        t.markAsDone();
+                    }
+                    tasks.add(t);
+                }
+                if (newTask[0].equals("E"))
+                {
+                    Task t = new Events(newTask[2], newTask[3]);
+                    if (newTask[1].equals("1"))
+                    {
+                        t.markAsDone();
+                    }
+                    tasks.add(t);
+                }
+            }
+        }
+        catch (FileNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public static void main(String[] args) throws DukeExceptionThrow {
         String logo = " ____        _        \n"
                 + "|  _ \\ _   _| | _____ \n"
@@ -58,6 +105,7 @@ public class Duke {
         Scanner ss = new Scanner(System.in);
         String input;
         List<Task> a = new ArrayList<Task>();
+        readDukeTask(a);
 
         while(!(input = ss.nextLine()).equals("bye"))
         {
