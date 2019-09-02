@@ -16,8 +16,8 @@ public class Duke {
         Scanner ss = new Scanner(System.in);
 
         String input;
-        List<Task> a = new ArrayList<Task>();
 
+        List<Task> a = new ArrayList<Task>();
 
         while(!(input = ss.nextLine()).equals("bye"))
         {
@@ -28,12 +28,12 @@ public class Duke {
             if (w[0].equals("list"))
             {
                 System.out.println("Here are the tasks in your list: ");
-                for (Task tts : a)
+                for (int c = 0; c < a.size(); c++)
                 {
-                    tts.printStatus();
+                    System.out.println( c+1 + "." + a.get(c).printStatus());
                 }
             }
-            else if (w[0] == "done")
+            else if (w[0].equals("done"))
             {
                 int i = Integer.parseInt(w[1]);
                 Task newT = a.get(i - 1);
