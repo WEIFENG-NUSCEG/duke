@@ -18,7 +18,7 @@ public class Task {
 
     public String printStatus()
     {
-        return "[" + this.getStatusIcon() + "]" + description;
+        return "[" + this.getStatusIcon() + "] " + description;
     }
 
 
