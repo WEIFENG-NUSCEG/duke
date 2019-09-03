@@ -11,4 +11,9 @@ public class ToDos extends Task {
     public String toString() {
         return "[T]" + super.printStatus();
     }
+
+    public String txtFormat() {
+        return "T | " + (this.isDone ? "1" : "0") + " | " + this.description;
+    }
+
 }

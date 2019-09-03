@@ -11,4 +11,8 @@ public class Events extends Task {
     public String toString() {
         return "[E]" + super.printStatus() + " (at: " + at + ")";
     }
+
+    public String txtFormat() {
+        return "E | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.at;
+    }
 }

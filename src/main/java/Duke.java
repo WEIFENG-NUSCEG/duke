@@ -52,6 +52,20 @@ public class Duke {
         }
     }
 
+    public static void writeFile(List<Task> task) {
+        try {
+            FileWriter ww = new FileWriter("./data/duke.txt");
+            for (Task t : task)
+            {
+                ww.write(t.txtFormat() + System.lineSeparator());
+            }
+            ww.close();
+        } catch (IOException e)
+        {
+            System.out.println("File writing process encounters an error " + e.getMessage());
+        }
+    }
+
     public static void readDukeTask(List<Task> tasks)
     {
         try {
@@ -128,6 +142,7 @@ public class Duke {
                     Task newT = a.get(i - 1);
                     newT.markAsDone();
                     System.out.println("Nice! I've marked this task as done: \n  " + newT.printStatus());
+                    writeFile(a);
                 }
                 else if (w[0].equals("todo"))
                 {
@@ -135,6 +150,7 @@ public class Duke {
                     a.add(t);
                     System.out.println("Got it. I've added this task: \n  " + t.toString() + "\n" + "Now you have " +
                             a.size() + " tasks in the list \n");
+                    writeFile(a);
                 }
                 else if (w[0].equals("deadline"))
                 {
@@ -143,6 +159,7 @@ public class Duke {
                     a.add(d);
                     System.out.println("Got it. I've added this task: \n  " + d.toString() + "\n" + "Now you have " +
                             a.size() + " tasks in the list \n");
+                    writeFile(a);
                 }
                 else if (w[0].equals("event"))
                 {
@@ -151,6 +168,7 @@ public class Duke {
                     a.add(e);
                     System.out.println("Got it. I've added this task: \n  " + e.toString() + "\n" + "Now you have " +
                             a.size() + " tasks in the list \n");
+                    writeFile(a);
                 }
             }
             catch (DukeExceptionThrow e)
