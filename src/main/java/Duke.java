@@ -16,7 +16,9 @@ public class Duke {
         String ic[] = input.split(" ",2);
 
         if (!(ic[0].equals("done") || ic[0].equals("todo") || ic[0].equals("deadline") || ic[0].equals("event")||
-                ic[0].equals("list") || ic[0].equals("find"))) {
+
+                ic[0].equals("list") || ic[0].equals("find") || ic[0].equals("delete"))) {
+
             throw new DukeExceptionThrow(" \u2639  OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
 
@@ -58,7 +60,7 @@ public class Duke {
             FileWriter ww = new FileWriter("./data/duke.txt");
             for (Task t : task)
             {
-                ww.write(t.txtWrite() + System.lineSeparator());
+                ww.write(t.writeTxt() + System.lineSeparator());
             }
             ww.close();
         } catch (IOException e)
@@ -181,7 +183,15 @@ public class Duke {
                             count++;
                         }
                     }
-
+                }
+                else if (w[0].equals("delete"))
+                {
+                    int i = Integer.parseInt(w[1]);
+                    Task newT = a.get(i - 1);
+                    System.out.println("Noted. I've removed this task: \n  " + newT.toString()+ "\n" + "Now you have "
+                            + (a.size() - 1) + " tasks in the list \n");
+                    a.remove(i - 1);
+                    writeFile(a);
                 }
             }
             catch (DukeExceptionThrow e)

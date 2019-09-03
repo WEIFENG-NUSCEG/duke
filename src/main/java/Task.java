@@ -14,7 +14,9 @@ public abstract class Task {
     }
 
     abstract String txtFormat();
-    abstract String txtWrite();
+
+    abstract String writeTxt();
+
 
     public void markAsDone()
     {

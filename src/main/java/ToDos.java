@@ -16,7 +16,9 @@ public class ToDos extends Task {
         return "T | " + (this.isDone ? "1" : "0") + " | " + this.description;
     }
 
-    public String txtWrite(){
+
+    public String writeTxt(){
         return "T | " + (this.isDone ? "1" : "0") + " | " + this.description;
     }
+
 }

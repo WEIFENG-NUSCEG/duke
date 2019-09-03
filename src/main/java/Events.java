@@ -32,7 +32,7 @@ public class Events extends Task {
         return "E | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.localDateTime;
     }
 
-    public String txtWrite(){
+    public String writeTxt(){
         return "E | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.at;
     }
 }
