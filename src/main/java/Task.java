@@ -13,6 +13,7 @@ public abstract class Task {
     }
 
     abstract String txtFormat();
+    abstract String writeTxt();
 
     public void markAsDone()
     {

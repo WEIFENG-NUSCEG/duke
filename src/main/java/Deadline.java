@@ -31,4 +31,8 @@ public class Deadline extends Task {
     public String txtFormat() {
         return "D | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.localDateTime;
     }
+
+    public String writeTxt(){
+        return "D | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.by;
+    }
 }

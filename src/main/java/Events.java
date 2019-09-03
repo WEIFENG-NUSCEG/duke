@@ -31,4 +31,8 @@ public class Events extends Task {
     public String txtFormat() {
         return "E | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.localDateTime;
     }
+
+    public String writeTxt(){
+        return "E | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.at;
+    }
 }
