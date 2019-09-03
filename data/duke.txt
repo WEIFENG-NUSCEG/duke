@@ -1,6 +1,7 @@
 T | 1 | read book
-D | 1 | return book | June 6th
-E | 0 | project meeting | Aug 6th 2-4pm
+D | 1 | return book | 2019-10-22T22:00
+E | 0 | project meeting | 2018-07-06T03:54
 T | 1 | join sports club
 T | 0 | designduke
-E | 0 | breakfast | thismorning 6am
+D | 1 | breakfast | 2018-11-12T16:54
+D | 0 | takeshower | 2019-12-02T18:00
