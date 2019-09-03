@@ -1,11 +1,12 @@
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
+
 
 
 public class Duke {
@@ -15,7 +16,7 @@ public class Duke {
         String ic[] = input.split(" ",2);
 
         if (!(ic[0].equals("done") || ic[0].equals("todo") || ic[0].equals("deadline") || ic[0].equals("event")||
-                ic[0].equals("list"))) {
+                ic[0].equals("list") || ic[0].equals("find"))) {
             throw new DukeExceptionThrow(" \u2639  OOPS!!! I'm sorry, but I don't know what that means :-(");
         }
 
@@ -57,7 +58,7 @@ public class Duke {
             FileWriter ww = new FileWriter("./data/duke.txt");
             for (Task t : task)
             {
-                ww.write(t.txtFormat() + System.lineSeparator());
+                ww.write(t.txtWrite() + System.lineSeparator());
             }
             ww.close();
         } catch (IOException e)
@@ -170,6 +171,18 @@ public class Duke {
                             a.size() + " tasks in the list \n");
                     writeFile(a);
                 }
+                else if (w[0].equals("find"))
+                {
+                    System.out.println("Here are the matching tasks in your list:");
+                    int count = 1;
+                    for (Task x : a) {
+                        if (x.getDescription().contains(w[1])) {
+                            System.out.println(count + "." + x.toString());
+                            count++;
+                        }
+                    }
+
+                }
             }
             catch (DukeExceptionThrow e)
             {
@@ -179,8 +192,6 @@ public class Duke {
         }
 
         System.out.println("Bye. Hope to see you again soon!");
-
-
 
     }
 }

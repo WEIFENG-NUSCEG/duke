@@ -3,6 +3,7 @@ public abstract class Task {
     protected String description;
     protected boolean isDone;
 
+
     public Task(String description) {
         this.description = description;
         this.isDone = false;
@@ -13,6 +14,7 @@ public abstract class Task {
     }
 
     abstract String txtFormat();
+    abstract String txtWrite();
 
     public void markAsDone()
     {
@@ -24,6 +26,9 @@ public abstract class Task {
         return "[" + this.getStatusIcon() + "] " + description;
     }
 
+    public String getDescription(){
+        return description;
+    }
 
 
 }
