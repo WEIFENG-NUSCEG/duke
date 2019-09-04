@@ -17,7 +17,6 @@ public abstract class Task {
 
     abstract String writeTxt();
 
-
     public void markAsDone()
     {
         isDone = true;
